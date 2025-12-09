@@ -180,7 +180,7 @@ svd.constr_linear_p = pyo.Constraint(I, J, rule = constr_linear_p)
 ##### linear approximation to e^{-z} = 1 - z when -z is around 0
 def constr_rule_v_approx(svd, i, j):
     return svd.v[i, j] == 1 - svd.z[i, j]
-
+svd.constr_v_approx = pyo.Constraint(I, J, rule = constr_rule_v_approx)
 
 ##### McCormick set for alpha
 def constr_rule_mc_alpha1(svd, i, j):
@@ -319,6 +319,7 @@ svd.U.display()
 svd.w.display()
 svd.gamma.display()
 
+svd.w_hat.display()
 
 # =============================================================================
 # for i in I:
